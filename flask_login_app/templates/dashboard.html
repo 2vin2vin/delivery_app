@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        #map-frame {
+            height: 500px; /* Adjust the height */
+            width: 100%;   /* Adjust the width */
+            border: none;  /* Optional: Remove border */
+        }
+    </style>
+</head>
+<body>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <h1>Welcome to your Dashboard, {{ user.username }}!</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <form method="POST">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" required>
+        <br>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" required>
+        <br>
+        <input type="submit" value='Live Location'>
+    </form>
+    {% if distance_result is not none %}
+        <h2>Distance: {{ distance_result }} km</h2>
+    {% endif %}
+    {% if lat_result is not none %}
+        <h2>latitude: {{ lat_result }} km</h2>
+    {% endif %}
+    {% if lon_result is not none %}
+        <h2>longitude: {{ lon_result }} km</h2>
+    {% endif %}
+    <h2>Map:</h2>
+    <iframe id="map-frame" src="{{ url_for('static', filename='my_map4.html') }}" loading="lazy"></iframe>
+</body>
+</html>
