@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<a href="{{ url_for('logout') }}">Logout</a>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <style>
         #map-frame {
             height: 500px; /* Adjust the height */
-            width: 100%;   /* Adjust the width */
+            width: 80%;   /* Adjust the width */
             border: none;  /* Optional: Remove border */
         }
     </style>
@@ -16,8 +17,8 @@
     {% if error_message %}
         <p style="color: red;">{{ error_message }}</p>
     {% endif %}
-    <h1>Welcome to your Dashboard, {{ user.username }}!</h1>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <h1>Welcome to your Dashboard, {{ user.password }}!</h1>
+    
     <form method="POST">
         <label for="latitude">Latitude:</label>
         <input type="text" id="latitude" name="latitude" required>

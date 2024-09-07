@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Vendor Registration</h2>
+        {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+        <form method="post">
+            <label for="vendorname">Vendor Name:</label>
+            <input type="text" id="vendorname" name="vendorname" required>
+            
+            <label for="vendorphone">Vendor Phone:</label>
+            <input type="text" id="vendorphone" name="vendorphone" required>
+            
+            <label for="vendoremail">Vendor Email:</label>
+            <input type="email" id="vendoremail" name="vendoremail" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmpassword">Confirm Password:</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" required>
+            
+            <label for="vendorlat">Latitude:</label>
+            <input type="text" id="vendorlat" name="vendorlat" required>
+            
+            <label for="vendorlon">Longitude:</label>
+            <input type="text" id="vendorlon" name="vendorlon" required>
+            
+            <label for="vendorcity">City:</label>
+            <input type="text" id="vendorcity" name="vendorcity" required>
+            
+            <label for="vendorstate">State:</label>
+            <input type="text" id="vendorstate" name="vendorstate" required>
+            
+            <label for="vendorcountry">Country:</label>
+            <input type="text" id="vendorcountry" name="vendorcountry" required>
+            
+            <button type="submit">Register</button>
+        </form>
+        <p><a href="{{ url_for('vendor_login') }}">Already have an account? Login</a></p>
+        <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+    </div>
+</body>
+</html>

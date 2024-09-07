@@ -107,10 +107,12 @@ def register():
         if not all([firstname, lastname, email, phonenumber, username, password, confirmpassword]):
             return render_template('register.html', error_message='All fields are required!')
         
+        # the email is not getting recognised
         #check this as this did not show error condition
         if email.count('@')<0 or email.count('.')<0:
             return render_template('register.html', error_message='Check Email Id')
         
+        #change the phone number to work with 10
         if len(phonenumber)!=9:
             return render_template('register.html', error_message="Check Phone Number")
         
